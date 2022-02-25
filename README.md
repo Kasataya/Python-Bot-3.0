@@ -1,27 +1,36 @@
 # Python-Bot-3.0
-#This is a bot that will take and store the users input, then evaluate the information to output it into a neat and organized table for the user to view
+#1      #                   Creating text file(s)
 
-print("---------------------------------------------------------------------------------")
+        #   1. every time a user inputs his first and last name a text file is created with the title (First_Last.text)
 
-def welcome():
-    name = "Hello my name is Jireh"
-    print(name)
-    
-def conversation():
-    convo = "Tell me about yourself "
-    user = input("Where are you from: ")
-    user2 = input("What is your dream job? ")
-    print("Oh wow, I didnt youre from", user,"and", user2, "is interesting")
+user_first = input("Enter your first name: ")
+user_last = input("Enter your Last name: ")
+file_name = user_first + user_last + '.txt'
 
-def guess():
-    for i in range(1,10):
-        num = int(input("Guess a number between 1 - 10: "))
-        print(num)
-        if i == (1,5):
-            print("Youre right!!")
-        else:
-            print("Wrong!!")
+        #   2. file is outomatically added to the folder within the code
+        
+file = open(file_name, 'wt') # with 'wt' access mode if file already exists with the same name, than the creation of that file will be denied
 
-welcome()
-conversation()
-guess()
+
+#2      #                   text file information
+
+        #   1. add different input statements within the text file created
+user_adress = input("What U.S state do you currently reside in: ")
+user_school = input("What school or university do you currently attend: ")
+user_major = input("What mojor are you pursueing in college or hope to pursue after school: ")
+
+
+file.write(" Hello, I am " + user_first + ' ' + user_last + '.')
+file.close()
+
+
+
+# After step 1 & 2 have been delt with, we currently have a code that creates different text files regarding each user
+
+#3      #                   Folder organization
+        #   1. Every time a file is in the process of being created this part of the code will iterate through already existing files making sure that
+        #       someone is incapable of creating two files with the same name.
+        #   2. The first and last name are compared withing files to make sure the same information is not created twice
+
+#4      #                   Udating files instead of deleting them
+        #   1. This part of the code makes sure that once someone inserts his first and last name an already existing file is accessed and updated  instead of creating a seperate file
